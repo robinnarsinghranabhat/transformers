@@ -1801,7 +1801,7 @@ class DeformableDetrForObjectDetection(DeformableDetrPreTrainedModel):
         self.model = DeformableDetrModel(config)
 
         # Detection heads on top
-        self.class_embed = nn.Linear(config.d_model, config.num_labels)
+        self.class_embed = nn.Linear(config.d_model, config.num_labels + 1)
         self.bbox_embed = DeformableDetrMLPPredictionHead(
             input_dim=config.d_model, hidden_dim=config.d_model, output_dim=4, num_layers=3
         )
